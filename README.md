@@ -30,3 +30,10 @@ The core of the project lies in designing and training a CNN model using TensorF
 Once the model is trained, its performance is evaluated on the test set. The model’s summary is printed to show the total number of parameters and the structure of each layer. After training, the model is used to predict the class of a test image. A visualization function is included to display the test image along with a bar chart showing the model’s confidence for each of the 10 classes. This helps in understanding not only what the model predicted but also how confident it is in its prediction. Finally, the overall accuracy of the model on the test dataset is calculated and printed. This metric gives an estimate of how well the model is expected to perform on unseen data.
 
 In conclusion, this project demonstrates a complete pipeline for image classification using deep learning techniques. It covers data preprocessing, model building, training, evaluation, and visualization. With an accuracy typically around 70–80%, the model performs reasonably well for a basic CNN architecture. There is potential to further enhance performance through advanced techniques such as data augmentation, dropout, batch normalization, or using deeper architectures like VGG16 or ResNet. This project not only provides hands-on experience with TensorFlow and convolutional neural networks but also lays the foundation for more complex computer vision applications in real-world scenarios.
+
+OUTPUT: (some of the output pictures)
+
+<img width="697" height="389" alt="Image" src="https://github.com/user-attachments/assets/4f283b05-63d7-462e-880e-7a5052efdd57" />
+<img width="689" height="389" alt="Image" src="https://github.com/user-attachments/assets/273d3680-b251-4fed-86e3-66014ec75f57" />
+<img width="689" height="385" alt="Image" src="https://github.com/user-attachments/assets/cf6f5b72-9df9-453d-aef1-70202055c5f4" />
+<img width="697" height="391" alt="Image" src="https://github.com/user-attachments/assets/4f8c43f5-8172-4d1e-83a5-505f0b80006c" />
