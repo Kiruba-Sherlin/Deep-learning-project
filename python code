@@ -52,4 +52,9 @@ def view_classification(image, probabilities):
   ax2.set_xlim(0, 1.1)
   plt.tight_layout()
 
+index = 0
+image, label = test_images[index], test_labels[index]
+probabilities = model.predict(image.reshape(1, 32, 32, 3))
+view_classification(image, probabilities[0])
+
 
