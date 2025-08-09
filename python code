@@ -57,4 +57,6 @@ image, label = test_images[index], test_labels[index]
 probabilities = model.predict(image.reshape(1, 32, 32, 3))
 view_classification(image, probabilities[0])
 
+test_loss, test_accuracy = model.evaluate(test_images, test_labels)
+print(f"Accuracy of the neural network on the {test_images.shape[0]} test images: {test_accuracy * 100:.2f}%")
 
