@@ -1,1 +1,39 @@
+import tensorflow as tf
+from tensorflow.keras import layers, models
+import matplotlib.pyplot as plt
+import numpy as np
 
+(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.cifar10.load_data()
+train_images = train_images / 127.5 - 1
+test_images = test_images / 127.5 - 1
+
+classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
+print('Number of images in the training dataset:', train_images.shape[0])
+print('Number of images in the testing dataset:', test_images.shape[0])
+
+print(f"Shape of the images in the training dataset: {train_images[0].shape}")
+
+fig, axes = plt.subplots(1, 10, figsize=(10, 10))
+for i in range(10):
+  image = train_images[i]
+  denoramalized_image = (image + 1) / 2
+  axes[i].imshow(denoramalized_image)
+  axes[i].set_title(classes[train_labels[i][0]])
+  axes[i].axis('off')
+
+model = models.Sequential([
+    layers.Conv2D(64, (3, 3), activation='relu', input_shape=(32, 32, 3)),
+    layers.MaxPooling2D((2, 2), strides=(2, 2)),
+    layers.Conv2D(128, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2), strides=(2, 2)),
+    layers.Flatten(),
+    layers.Dense(120, activation='relu'),
+    layers.Dense(84, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+model.summary()
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels))
